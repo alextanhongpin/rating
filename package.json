@@ -1,12 +1,12 @@
 {
-  "name": "rating",
-  "version": "1.0.0",
+  "name": "wilson-rate",
+  "version": "1.0.1",
   "description": "Rating utility for nodejs",
   "main": "index.js",
   "scripts": {
     "test": "babel-node ./node_modules/.bin/isparta cover node_modules/.bin/_mocha -- --ui bdd -R spec --recursive --watch",
-    "build": "BABEL_ENV=production babel src -o dist/rating.minify.js",
-    "watch": "BABEL_ENV=development babel src -o dist/rating.minify.js --watch"
+    "build": "BABEL_ENV=production babel src -o dist/wilson-rate.minify.js",
+    "watch": "BABEL_ENV=development babel src -o dist/wilson-rate.minify.js --watch"
   },
   "author": "alextanhongpin",
   "license": "ISC",
@@ -29,5 +29,16 @@
     "image",
     "rating",
     "wilson"
-  ]
+  ],
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alextanhongpin/rating.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alextanhongpin/rating/issues"
+  },
+  "homepage": "https://github.com/alextanhongpin/rating#readme"
 }

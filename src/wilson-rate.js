@@ -1,5 +1,5 @@
 
-const mid = ({ upvotes, downvotes }) => {
+const mid = (upvotes, downvotes) => {
   const total = upvotes + downvotes
   const up = upvotes / total
   const half = .5
@@ -8,13 +8,13 @@ const mid = ({ upvotes, downvotes }) => {
   return a * up + b * half
 }
 
-const average = ({ upvotes, downvotes }) => {
+const average = (upvotes, downvotes) => {
   const total = upvotes + downvotes
   return upvotes / total
 }
 
 
-const wilson = ({ upvotes, downvotes, z=1.644853 }) => {
+const wilson = (upvotes, downvotes, z=1.644853) => {
   // Use 1.96 for a confidence level of 0.95.
   const n = upvotes + downvotes
   const phat = upvotes / n
@@ -39,6 +39,7 @@ function stars () {
   }).reduce((prev, next) => {
     return prev + next
   }, 0)
+
   return { upvotes, downvotes }
 }
 
