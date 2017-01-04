@@ -1,6 +1,6 @@
 {
   "name": "wilson-rate",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Rating utility for nodejs",
   "main": "index.js",
   "scripts": {

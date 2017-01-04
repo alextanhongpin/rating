@@ -12,8 +12,17 @@ Write a solution to sort items correctly based on ratings
 Lower bound of Wilson's Confidence Interval
 
 ```
+const wilsonRate = require('wilson-rate')
 const upvotes = 100
 const downvotes = 50
+
+// Convert 5-star rating system to upvotes and downvotes
+const stars = wilsonRate.stars(100, 0, 0, 10, 100)
+console.log(wilsonRate.wilson(stars.upvotes, stars.downvotes))
+
+console.log(wilsonRate.average(upvotes, downvotes))
+console.log(wilsonRate.wilson(upvotes, downvotes))
+console.log(wilsonRate.mid(upvotes, downvotes))
 ```
 
 ###Reference:
