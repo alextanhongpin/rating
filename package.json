@@ -1,12 +1,12 @@
 {
-  "name": "compress.js",
-  "version": "1.0.3",
-  "description": "A client side JavaScript image compression library",
+  "name": "rating",
+  "version": "1.0.0",
+  "description": "Rating utility for nodejs",
   "main": "index.js",
   "scripts": {
     "test": "babel-node ./node_modules/.bin/isparta cover node_modules/.bin/_mocha -- --ui bdd -R spec --recursive --watch",
-    "build": "BABEL_ENV=production babel src -o dist/compress.minify.js",
-    "watch": "BABEL_ENV=development babel src -o dist/compress.minify.js --watch"
+    "build": "BABEL_ENV=production babel src -o dist/rating.minify.js",
+    "watch": "BABEL_ENV=development babel src -o dist/rating.minify.js --watch"
   },
   "author": "alextanhongpin",
   "license": "ISC",
@@ -27,7 +27,7 @@
   "keywords": [
     "javascript",
     "image",
-    "compression",
-    "base64"
+    "rating",
+    "wilson"
   ]
 }

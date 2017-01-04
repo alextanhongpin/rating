@@ -1,56 +1,28 @@
-[![Build Status](https://travis-ci.org/alextanhongpin/compress.js.svg?branch=master)](https://travis-ci.org/alextanhongpin/compress.js)
 
-# compress.js
-A JavaScript client side image compression. This library uses the Canvas API to compress the image, and thus will not work on the node.js server-side.
+server.js
 
-### Advantage:
+Problem Statement:
+There are different way of rating things
+E.g. Upvotes/Downvotes in Reddit's post
+E.g. 5-Star rating system in e-commerce products
 
-- quick compression on the client-side
-- compress multiple images and convert them to base64 string
-- save data by compressing it on the client-side before sending to the server
-- automatically resize the image to max 1920px (width or height, but mantains the aspect ratio of the images)
+Goal:
+Write a solution to sort items correctly based on ratings
 
+Solution:
+Lower bound of Wilson's Confidence Interval
 
-### Usage:
+Reference:
+http://stackoverflow.com/questions/19613023/wilsons-confidence-interval-for-5-star-rating
+http://www.evanmiller.org/how-not-to-sort-by-average-rating.html
+http://www.itl.nist.gov/div898/handbook/prc/section2/prc241.html
 
-```javascript
+What if we want to handle 5-stars rating system?
 
-// Initialization
-const compress = new Compress()
+For star rating -- Add
 
-// Attach listener
-const upload = document.getElementById('upload')
-upload.addEventListener('change', function (evt) {
-  const files = [...evt.target.files]
-  compress.compress(files, {
-    size: 4, // the max size in MB, defaults to 2MB
-    quality: .75 // the quality of the image, max is 1
-  }).then((data) => {
-    // returns an array of compressed images
-    console.log(data[0])
-    // alt: "10mb-image.jpg"
-    // base64prefix: "data:jpeg;base64,"
-    // data: "/9j/4AAQS...
-    // endHeightInPX: 1280
-    // endWidthInPX: 1920
-    // ext: "image/jpeg"
-    // finalSizeInMB: 0.26388
-    // iterations: 1
-    // quality: 0.75
-    // sizeReducedInPercent: 97.06466480692396
-    // startHeightInPX: 3744
-    // startSizeInMB: 8.989774
-    // startWidthInPX: 5616
-    // timeElapsedInSeconds: 3.2430549999999987
-  })
-}, false)
-
-
-// or simpler
-compress.attach('#upload', {
-  size: 4,
-  quality: .75
-}).then((data) => {
-  console.log('uploaded compressed ', data)
-})
-```
+*     - 0.00 to up votes and 1.00 to down votes (i.e. a full down vote)
+**    - 0.25 to up votes and 0.75 to down votes
+***   - 0.50 to up votes and 0.50 to down votes
+****  - 0.75 to up votes and 0.25 to down votes
+***** - 1.00 to up votes and 0.00 to down votes (i.e. a full up vote)
